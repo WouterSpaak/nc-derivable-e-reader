@@ -17,9 +17,9 @@ export class AppComponent {
 
     /**
      * Atoms are the basic building blocks of this reactive application. They are mutable references to immutable values.
-     * Atoms represent the ground truth from which the application is derived.
+     * Atoms represent the ground truth from which the total application state is derived.
      */
-    private readonly currentBook$: Atom<List<string>> = atom(List([]));
+    private readonly currentBook$: Atom<List<string>> = atom(this.books.bohemia);
     readonly currentFontSize$: Atom<number> = atom(this.utils.getAvailableSizes()[0]);
     readonly currentPageNumber$: Atom<number> = atom(0);
 
@@ -30,9 +30,9 @@ export class AppComponent {
      */
     private readonly currentBookPaginated$ = derivation(
         () => this.utils.getPaginated(this.currentFontSize$.get(), this.currentBook$.get())
-    )
+    );
 
-    currentPage$: Derivable<List<string>> = this.currentBookPaginated$.derive(list => list.get(this.currentPageNumber$.get()));
+    readonly currentPage$: Derivable<List<string>> = this.currentBookPaginated$.derive(list => list.get(this.currentPageNumber$.get()));
 
     get bookNames() {
         return Object.keys(this.books);

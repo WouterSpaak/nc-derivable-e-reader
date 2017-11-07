@@ -5,21 +5,19 @@ import { List, Range } from 'immutable';
 export class UtilsService {
 
     private readonly sizeMap = [
-        { size: 12, lines: 24 },
+        { size: 14, lines: 24 },
         { size: 18, lines: 22 },
         { size: 24, lines: 18 },
         { size: 36, lines: 14 },
-        { size: 48, lines: 10 },
-        { size: 72, lines: 6 }
+        { size: 48, lines: 8 },
+        { size: 72, lines: 2 }
     ];
 
     getAvailableSizes() {
         return this.sizeMap.map(val => val.size);
     }
 
-    /**
-     * This would ideally be some function that calculates the amount of lines shown
-     */
+    // Ideally some function that calculates the amount of lines possibly shown.
     getLinesForSize(fontSize: number): number {
         return this.sizeMap.find(val => val.size === fontSize).lines;
     }
