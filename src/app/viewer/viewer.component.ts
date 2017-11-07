@@ -11,5 +11,6 @@ export class ViewerComponent {
 
     @Input() page: List<string>;
     @Input() size: number;
+    @Input() pageNumber: number;
 
 }

@@ -1,4 +1,9 @@
-<app-navigator [availableSizes]="availableSizes" [bookNames]="bookNames" (fontSizeChanged)="setFontSize($event)" (bookChanged)="setBook($event)"
-    (pageNumberChanged)="setPageNumber($event)"></app-navigator>
+<app-navigator [availableSizes]="availableSizes"
+               [bookNames]="bookNames"
+               (fontSizeChanged)="setFontSize($event)"
+               (bookChanged)="setBook($event)"
+               (pageNumberChanged)="setPageNumber($event)"></app-navigator>
 
-<app-viewer [page]="currentPage$ | value" [size]="currentFontSize$ | value"></app-viewer>
+<app-viewer [page]="currentPage$ | value"
+            [size]="currentFontSize$ | value"
+            [pageNumber]="currentPageNumber$ | value"></app-viewer>

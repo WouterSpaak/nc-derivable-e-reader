@@ -17,15 +17,17 @@ export class UtilsService {
         return this.sizeMap.map(val => val.size);
     }
 
-    // Ideally some function that calculates the amount of lines possibly shown.
-    getLinesForSize(fontSize: number): number {
-        return this.sizeMap.find(val => val.size === fontSize).lines;
-    }
-
     getPaginated(fontSize: number, book: List<string>): List<List<string>> {
         const chunkSize = this.getLinesForSize(fontSize);
         return Range(0, book.count(), chunkSize)
             .map(chunkStart => book.slice(chunkStart, chunkStart + chunkSize).toList())
             .toList();
+    }
+
+    // Ideally some method that calculates the amount of lines possibly shown
+    // by taking the available screen real estate and dividing that by the line
+    // height.
+    private getLinesForSize(fontSize: number): number {
+        return this.sizeMap.find(val => val.size === fontSize).lines;
     }
 }

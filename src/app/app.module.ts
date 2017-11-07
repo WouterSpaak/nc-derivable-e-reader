@@ -1,4 +1,3 @@
-import { ReactiveFormsModule } from '@angular/forms';
 import { NgxSherlockModule } from 'ngx-sherlock';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -17,7 +16,6 @@ import { UtilsService } from './utils.service';
     imports: [
         BrowserModule,
         NgxSherlockModule,
-        ReactiveFormsModule,
     ],
     providers: [UtilsService],
     bootstrap: [AppComponent]
